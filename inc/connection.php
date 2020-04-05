@@ -4,8 +4,15 @@ try{
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(Exception $e){
   echo "Unable to connect  ";
-  echo $e->getMessage();
+  //echo $e->getMessage();
    exit;
 }
 
-echo "Connected to the database";
+try {
+  $results = $db->query("SELECT title, category FROM Media");
+  echo "Retrieved Results";
+  var_dump($results);
+} catch(Exception $e){
+  echo "Unable to retrieved results";
+  exit;
+}
