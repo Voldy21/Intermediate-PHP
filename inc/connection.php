@@ -1,4 +1,10 @@
 <?php
+try{
+  $db = new PDO("sqlite:".__DIR__."/database.db");
+  var_dump($db);
+} catch(Exception $e){
+ echo "Unable to connect";
+   exit;
+}
 
-$db = new PDO("sqlite:".__DIR__."/database.db");
-var_dump($db);
+echo "Connected to the database";
